@@ -5,11 +5,12 @@ const SortArray = () => {
     dst = dst.split('');
 
     dst.map((val) => {
-        typeof val == "string" ? str.push(val) : num.push(val);
+        // check integer on type input
+        isNaN(+val) ? num.push(val) : str.push(val);
     });
 
     dst = [];
-    
-    dst = dst.concat([str.sort()], [num.sort()]);
+
+    dst = dst.concat([num.sort()], [str.sort()]);
     document.getElementById("result").innerHTML = dst;
 }
